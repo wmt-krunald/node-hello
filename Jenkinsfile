@@ -24,11 +24,12 @@ pipeline {
             }
         }
 
-        // stage('deploy'){
-        //     step{
-                
-        //     }
-        // }
+        stage('deploy'){
+            steps {
+                sh 'npm run build'
+                sh 'npm run start'
+            }
+        }
     }
 
 }
