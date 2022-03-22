@@ -6,6 +6,10 @@ pipeline {
         }
     }
 
+    environment {
+        CI = 'true'
+    }
+
     stages {
         stage('build') {
             steps {
@@ -14,11 +18,11 @@ pipeline {
             }
         }
 
-        // stage('test'){
-        //     step{
-                
-        //     }
-        // }
+        stage('test'){
+            step{
+                sh 'npm run test'
+            }
+        }
 
         // stage('deploy'){
         //     step{
