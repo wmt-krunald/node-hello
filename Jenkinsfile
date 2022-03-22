@@ -14,7 +14,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm install'
-                sh 'npm run build'
+                // sh 'npm run build'
             }
         }
 
@@ -25,8 +25,7 @@ pipeline {
         }
 
         stage('deploy'){
-            steps {
-                sh 'npm run start'                
+            steps {             
                 sh 'npm run build'
             }
         }
