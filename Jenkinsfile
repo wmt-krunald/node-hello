@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'node:16.14.2'
-            args '-p 3000:3000'
         }
     }
 
@@ -13,20 +12,20 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'npm install'
-                // sh 'npm run build'
+                sh 'npm ci'
+                sh 'npm run build'
             }
         }
 
-        stage('test'){
-            steps {
-                sh 'npm run test'
-            }
-        }
+        // stage('test'){
+        //     steps {
+        //         sh 'npm run test'
+        //     }
+        // }
 
         stage('deploy'){
             steps {             
-                sh 'npm run build'
+                
             }
         }
     }
