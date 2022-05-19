@@ -1,15 +1,17 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:16.14.2'
-        }
-    }
+    agent any 
+//     {
+//         docker {
+//             image 'node:16.14.2'
+//         }
+//     }
 
     environment {
         CI = 'true'
     }
 
-    stages {
+    stages{
+        
         stage('build') {
             steps {
                 sh 'npm ci'
@@ -23,11 +25,11 @@ pipeline {
         //     }
         // }
 
-        stage('deploy'){
-            steps {             
+//         stage('deploy'){
+//             steps {             
                 
-            }
-        }
+//             }
+//         }
     }
 
 }
