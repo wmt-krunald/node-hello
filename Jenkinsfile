@@ -59,7 +59,7 @@ pipeline {
 
         stage('start') {
             steps {
-                sh 'node run start'
+                sh 'npm run start'
             }
         }
     }
