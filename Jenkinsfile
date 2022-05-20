@@ -63,10 +63,10 @@ pipeline {
             }
         }
         stage('deploy') {
-            // environment {
-            //     NETLIFY_AUTH_TOKEN = credentials('NETLIFY_AUTH_TOKEN')
-            //     NETLIFY_SITE_ID = credentials('NETLIFY_SITE_ID')
-            // }
+            environment {
+                NETLIFY_AUTH_TOKEN = credentials('NETLIFY_AUTH_TOKEN')
+                NETLIFY_SITE_ID = credentials('NETLIFY_SITE_ID')
+            }
             
             steps {
                 sh 'npm install netlify-cli'
