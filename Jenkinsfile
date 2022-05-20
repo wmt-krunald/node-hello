@@ -18,7 +18,12 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm i'
-                sh 'npm run build'
+            }
+        }
+
+        stage('start') {
+            steps {
+                sh 'node index.js'
             }
         }
     }
