@@ -1,35 +1,66 @@
-pipeline {
-    agent any 
-//     {
-//         docker {
-//             image 'node:16.14.2'
-//         }
+// pipeline {
+//     agent any 
+// //     {
+// //         docker {
+// //             image 'node:16.14.2'
+// //         }
+// //     }
+
+//     environment {
+//         CI = 'true'
 //     }
+
+//     stages{
+        
+//         stage('build') {
+//             steps {
+//                 sh 'npm ci'
+//                 sh 'npm run build'
+//             }
+//         }
+
+//         // stage('test'){
+//         //     steps {
+//         //         sh 'npm run test'
+//         //     }
+//         // }
+
+// //         stage('deploy'){
+// //             steps {             
+                
+// //             }
+// //         }
+//     }
+
+// }
+pipeline {
+    agent any
+ 
+    tools {nodejs "node"}
 
     environment {
         CI = 'true'
     }
 
     stages{
-        
-        stage('build') {
+
+        stage('check') {
             steps {
-                sh 'npm ci'
-                sh 'npm run build'
+            sh 'npm config ls'
             }
         }
 
-        // stage('test'){
-        //     steps {
-        //         sh 'npm run test'
-        //     }
-        // }
+        stage('build') {
+            steps {
+                sh 'npm i'
+            }
+        }
 
-//         stage('deploy'){
-//             steps {             
-                
-//             }
-//         }
+        stage('start') {
+            steps {
+                sh 'node index.js'
+            }
+        }
     }
 
 }
